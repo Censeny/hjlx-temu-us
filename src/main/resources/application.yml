@@ -1,0 +1,31 @@
+server:
+  port: 9300
+
+spring:
+  profiles:
+    active: dev   # 开发用 dev，测试用 test，生产用 prod
+  application:
+    name: hjlx-temu-us
+  jackson:
+    default-property-inclusion: non_null
+
+temu:
+  # 国内业务方调用本服务时携带的请求头 x-api-key（请务必修改）
+  api-key: "change-me-please"
+  # Temu 开放平台应用凭证（海外服务器上配置）
+  app-key: "your-temu-app-key"
+  app-secret: "your-temu-app-secret"
+  # 默认区域：US / EU / GLOBAL
+  default-region: "US"
+  # 各区域接入地址
+  base-url-us: "https://openapi-b-us.temu.com"
+  base-url-eu: "https://openapi-b-eu.temu.com"
+  base-url-global: "https://openapi-b-global.temu.com"
+  # 通用代理接口路径
+  api-router: "/openapi/router"
+  # HTTP 超时时间（毫秒）
+  timeout-ms: 30000
+
+logging:
+  level:
+    com.hjlx.temu: INFO
